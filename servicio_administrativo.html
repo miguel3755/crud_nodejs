@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Administrativo - MDDIGITAL</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #56a3f7, #343a40); /* Degradado de azul a gris oscuro */
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+        .navbar {
+            background-color: #343a40; /* Fondo oscuro de la barra */
+        }
+        .navbar-brand, .nav-link, .dropdown-item {
+            color: white !important;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #56a3f7 !important;
+        }
+        .dropdown-item:hover {
+            background-color: #56a3f7 !important;
+            color: white !important;
+        }
+        .jumbotron {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            color: white;
+            padding: 40px;
+        }
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .icon {
+            font-size: 2em; /* Reducción del tamaño del ícono */
+            margin: 20px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .icon:hover {
+            transform: scale(1.2);
+            color: #56a3f7;
+        }
+        .icon-label {
+            font-size: 1em;
+            color: #fff;
+            margin-top: 10px;
+        }
+        .icon-container {
+            width: 20%;
+            text-align: center;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+        .icon-container:hover {
+            transform: translateY(-10px); /* Efecto al pasar el ratón */
+        }
+        .dropdown-menu {
+            background-color: #343a40;
+        }
+        .dropdown-item {
+            color: #56a3f7;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Menú de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">MDDIGITAL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="mddigital.html">Inicio <span class="sr-only">(actual)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usuarios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
+                    <a class="dropdown-item" href="#">Agregar Usuario</a>
+                    <a class="dropdown-item" href="#">Listar Usuarios</a>
+                    <a class="dropdown-item" href="#">Eliminar Usuario</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReportes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Reportes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownReportes">
+                    <a class="dropdown-item" href="#" id="reporteUsuarios">Reporte de Usuarios</a>
+                    <a class="dropdown-item" href="#">Reporte de Actividades</a>
+                    <a class="dropdown-item" href="#">Reporte de Errores</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Generar Reporte</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="formulario.html">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Encabezado -->
+<div class="jumbotron text-center">
+    <h1 class="display-4">Bienvenido al Servicio Administrativo</h1>
+    <p class="lead">Administra usuarios, reportes y más con facilidad.</p>
+</div>
+
+<!-- Contenido principal -->
+<div class="container">
+    <h2>SERVICIOS</h2>
+
+    <!-- Filas de íconos -->
+    <div class="icon-row">
+        <div class="icon-container">
+            <a href="gestor_empresas.html">
+                <i class="fas fa-building icon" title="Gestor de Empresas"></i>
+                <span class="icon-label">Gestor de Empresas</span>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="listar_usuarios.html">
+                <i class="fas fa-users icon" title="Listar Usuarios"></i>
+                <span class="icon-label">Gestor Usuarios</span>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="gestor_vigilancia.html">
+                <i class="fas fa-user-shield icon" title="Gestor de Vigilancia"></i>
+                <span class="icon-label">Gestor de Vigilancia</span>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="reportes.html">
+                <i class="fas fa-file-alt icon" title="Reportes"></i>
+                <span class="icon-label">Puesto y Novedades</span>
+            </a>
+        </div>
+    </div>
+    <div class="icon-row">
+        <div class="icon-container">
+            <a href="configuracion.html">
+                <i class="fas fa-desktop icon" title="Puesto de Trabajo"></i>
+                <span class="icon-label">Puesto de Trabajo</span>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="estadisticas.html">
+                <i class="fas fa-chart-bar icon" title="Estadísticas"></i>
+                <span class="icon-label">Muro</span>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="notificaciones.html">
+                <i class="fas fa-bell icon" title="Historial de Novedades"></i>
+                <span class="icon-label">Historial de Novedades</span>
+            </a>
+        </div>
+        <div class="icon-container">
+            <a href="ayuda.html">
+                <i class="fas fa-cogs icon" title="Configuración"></i>
+                <span class="icon-label">Configuración</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

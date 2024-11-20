@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - MDDIGITAL</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<!-- Botón Regresar -->
+<button class="btn btn-back" onclick="window.history.back()">Regresar</button>
+
+<div class="container">
+    <div class="card p-4">
+        <h3 class="text-center">Iniciar Sesión</h3>
+        <form id="formLogin">
+            <div class="mb-3">
+                <label for="cedula" class="form-label">Cédula</label>
+                <input type="text" class="form-control" id="cedula" placeholder="Ingresa tu número de cédula" required>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contraseña" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-custom w-100">Iniciar Sesión</button>
+            <!-- Enlace de "Olvidó su contraseña" -->
+            <div class="text-center mt-3">
+                <a href="recuperar_contrasena.html" class="text-decoration-none text-primary">¿Olvidó su contraseña?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('formLogin').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío real del formulario
+
+        // Obtener los valores de los campos
+        const cedula = document.getElementById('cedula').value.trim();
+        const correo = document.getElementById('correo').value.trim();
+        const contraseña = document.getElementById('contraseña').value.trim();
+
+        // Validar los campos
+        if (cedula === '' || correo === '' || contraseña === '') {
+            alert('Por favor, completa todos los campos.');
+            return;
+        }
+
+        // Aquí puedes agregar la lógica de validación de cedula, correo y contraseña con la base de datos
+
+        // Realizar la solicitud POST al servidor para validar las credenciales
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ cedula, correo, contraseña })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Inicio de sesión exitoso') {
+                alert('Inicio de sesión exitoso');
+                window.location.href = "servicio_administrativo.html"; // Redirige a la página principal
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+</body>
+</html>

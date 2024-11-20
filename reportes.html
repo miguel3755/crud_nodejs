@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes y Novedades</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fuente Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f2f2f2, #0f0f0f);
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(98, 98, 116, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            width: 450px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #131212;
+        }
+        .top-buttons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .top-buttons button {
+            margin-right: 10px;
+        }
+        .button-group {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .btn {
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.2);
+        }
+        .btn:active {
+            transform: scale(0.98);
+            box-shadow: none;
+        }
+        /* Botones con gradientes */
+        .btn-info {
+            background: linear-gradient(145deg, #636262, #138496);
+            border: none;
+        }
+        .btn-warning {
+            background: linear-gradient(145deg, #6e6e6e, #e0a800);
+            border: none;
+        }
+        .btn-success {
+            background: linear-gradient(145deg, #0a0a0a, #218838);
+            border: none;
+        }
+        .btn-danger {
+            background: linear-gradient(145deg, #4e4243, #7258f3);
+            border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(145deg, #121313, #0069d9);
+            border: none;
+        }
+        /* Estilo de iconos */
+        .btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        .btn-info i {
+            color: #fff;
+        }
+        .btn-warning i {
+            color: #fff;
+        }
+        .btn-success i {
+            color: #fff;
+        }
+        .btn-danger i {
+            color: #fff;
+        }
+        .btn-primary i {
+            color: #fff;
+        }
+        /* Animación de FadeIn */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 85%;
+                padding: 30px;
+            }
+            .button-group {
+                gap: 15px;
+            }
+            .btn {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Botones de cerrar sesión y regresar -->
+<div class="top-buttons">
+    <button class="btn btn-danger btn-sm" onclick="window.location.href='formulario.html'">Cerrar sesión</button>
+    <button class="btn btn-secondary btn-sm" onclick="window.history.back();">Regresar</button>
+</div>
+
+<div class="container">
+    <h1>Reportes y Novedades</h1>
+
+    <!-- Botones de navegación -->
+    <div class="button-group">
+        <button class="btn btn-info btn-sm m-1" onclick="window.location.href='informacion.html'">
+            <i class="fas fa-info-circle"></i> Solicita Más Información
+        </button>
+        <button class="btn btn-warning btn-sm m-1" onclick="window.location.href='reporte1.html'">
+            <i class="fas fa-briefcase"></i> Reporte Puesto de Trabajo
+        </button>
+        <button class="btn btn-success btn-sm m-1" onclick="window.location.href='reporte2.html'">
+            <i class="fas fa-exclamation-circle"></i> Informe Incidente
+        </button>
+        <button class="btn btn-danger btn-sm m-1" onclick="window.location.href='reporte3.html'">
+            <i class="fas fa-fire"></i> Informe Contingencias
+        </button>
+        <button class="btn btn-primary btn-sm m-1" onclick="window.location.href='correspondencia.html'">
+            <i class="fas fa-envelope"></i> Correspondencia
+        </button>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script de redirección -->
+<script>
+    // Aquí puedes agregar la lógica de redirección si se requiere alguna acción específica al cargar esta página.
+    // Ejemplo de redirección simple:
+    function redirectToPage() {
+        window.location.href = "reportes1.html"; // Cambia "reportes1.html" si es necesario
+    }
+</script>
+</body>
+</html>

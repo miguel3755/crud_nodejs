@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Usuario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+      <!-- Botón MDdigital en el lado superior izquierdo -->
+      <div style="position: absolute; top: 10px; left: 10px;">
+        <button onclick="window.location.href='/mddigital.html'" style="background-color: #6554fa; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">MDdigital</button>
+    </div>
+    <div class="form-container">
+        <h1>Registrar Usuario</h1>
+        <form id="usuarioForm">
+            <label for="cedula">Cédula:</label>
+            <input type="text" id="cedula" name="cedula" required>
+
+            <label for="nombres">Nombre:</label>
+            <input type="text" id="nombres" name="nombres" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+
+            <label for="confirmarContraseña">Confirmar Contraseña:</label>
+            <input type="password" id="confirmarContraseña" name="confirmarContraseña" required>
+
+            <div class="button-container">
+                <button type="submit" class="btn-registrar">Registrar Usuario</button>
+                <button type="button" class="btn-inicio" id="btnInicio">Iniciar Sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Validación de contraseñas y envío de formulario
+        document.getElementById('usuarioForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const cedula = document.getElementById('cedula').value;
+            const nombres = document.getElementById('nombres').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const telefono = document.getElementById('telefono').value;
+            const correo = document.getElementById('correo').value;
+            const contraseña = document.getElementById('contraseña').value;
+            const confirmarContraseña = document.getElementById('confirmarContraseña').value;
+
+            // Validación para asegurarse de que las contraseñas coincidan
+            if (contraseña !== confirmarContraseña) {
+                alert('Las contraseñas no coinciden. Inténtalo de nuevo.');
+                return;
+            }
+
+            fetch('/usuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ cedula, nombres, apellidos, telefono, correo, contraseña }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Usuario registrado:', data);
+                alert('Usuario registrado con éxito: ' + data.id);
+                window.location.href = 'inicio.html';  // Redirige a la página de inicio
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+
+        // Redirigir al hacer clic en "Iniciar Sesión"
+        document.getElementById('btnInicio').addEventListener('click', function() {
+            window.location.href = 'inicio.html'; // Cambia a la URL que desees
+        });
+    </script>
+</body>
+</html>
